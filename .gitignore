@@ -7,3 +7,4 @@ notebooks
 *.pyc
 *.so
 tinyboard.db
+.DS_Store

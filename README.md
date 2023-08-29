@@ -49,14 +49,14 @@ make deps # run one time to install deps
 make build # rebuild npm after any changes
 make run
 ```
-Both UI and Server runs at port 4334.
+Both UI and Server runs at port 6226.
 
 ### Dev
 ```bash
 make deps # run one time to install deps
 make dev
 ```
-UI runs on the port 3000 and Server runs on the port 4334.
+UI runs on the port 3000 and Server runs on the port 6226.
 
 
 

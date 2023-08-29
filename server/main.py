@@ -134,4 +134,4 @@ def api_restore_graphs(session):
     return make_response(graphs, 200)
 
 if __name__ == '__main__':
-    socketio.run(app, port=4334, use_reloader=True)
+    socketio.run(app, port=6226, use_reloader=True)
