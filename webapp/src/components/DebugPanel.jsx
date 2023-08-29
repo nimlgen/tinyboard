@@ -152,7 +152,7 @@ export class DebugPanel extends Component {
                                 <ToggleButton value="lazyops">lazyops</ToggleButton>
                             </ToggleButtonGroup>
                             {
-                                this.state.graph_controls_focused_type == "lazyops" ?
+                                false && this.state.graph_controls_focused_type == "lazyops" ?
                                     <><br /><FormControlLabel style={{ marginTop: "16px" }} control={<Switch onChange={(ev) => { this.setState({ graph_controls_colorized_graph: ev.target.checked }) }} />} label="Colorize kernels" />
                                     </> : null
                             }
@@ -161,11 +161,11 @@ export class DebugPanel extends Component {
                                     <><br /><FormControlLabel style={{ marginTop: "16px" }} control={<Switch onChange={(ev) => { this.setState({ graph_controls_group_tensor_operations: ev.target.checked }) }} />} label="Group by tensor operations" />
                                     </> : null
                             }
-                            <hr />
-                            <h5>Legend</h5>
                             {
                                 this.state.graph_controls_focused_type == "lazyops" && this.state.graph_controls_colorized_graph ?
                                     <>
+                                        <hr />
+                                        <h5>Legend</h5>
                                         Node color to kernel:
                                         {
                                             Object.keys(this.state.kernel_to_color).map((key, index) => (

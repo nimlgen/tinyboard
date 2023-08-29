@@ -145,6 +145,14 @@ export class KernelPanel extends Component {
                 title: "gb",
                 minimum: 0,
             },
+            axisX: {
+                gridThickness: 0,
+                tickLength: 0,
+                lineThickness: 0,
+                labelFormatter: function(){
+                    return "";
+                }
+            },
             data: [{
                 type: "area",
                 dataPoints: this.state.memory_series
@@ -155,7 +163,7 @@ export class KernelPanel extends Component {
         return (
             <TabPanel value={this.props.current_tab} index={this.props.index}>
                 <Grid container>
-                    {this.state.kernels_count == 0 ? <p style={{ "padding": "16px" }}>To collect kernel statistics use DEBUG>=2.</p> :
+                    {this.state.kernels_count == 0 ? <p style={{ "padding": "16px" }}>To collect kernel statistics run with DEBUG>=2.</p> :
                         <>
                             <Grid xs={6} style={{ "padding": "16px" }}>
                                 <Grid container>
@@ -172,6 +180,7 @@ export class KernelPanel extends Component {
                                     </Grid>
                                 </Grid>
                                 <DataGrid
+                                    style={{ "marginTop": "16px" }}
                                     rows={this.state.kernels}
                                     columns={columns}
                                     initialState={{
@@ -203,7 +212,6 @@ export class KernelPanel extends Component {
             SERVER_API_URL + "restore_kernels/" + this.props.session,
         ).then(response => {
             this.restore_kernel_stat(response.data.kernel_stat)
-            console.log(response.data)
             this.restore_kernel_def(response.data.kernel_def)
         }).catch(error => {
             console.log("oops", error)

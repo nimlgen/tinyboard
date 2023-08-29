@@ -14,6 +14,9 @@ for i in range(100):
     # something
     tinyboard_log_graph("Train stat", "line", [[loss_cpu]], graphinfo={'series_names': ['loss']})
 ```
+<p align="center">
+<img src="https://raw.githubusercontent.com/nimlgen/tinyboard/master/screenshots/timeseries.png" width="400px">
+</p>
 
 ### Function inspector
 
@@ -27,6 +30,9 @@ def make_square_mask(X, mask_size):
   d_x = Tensor.arange(0, X.shape[-1]).reshape((1,1,1,X.shape[-1]))
   # ...
 ```
+<p align="center">
+<img src="https://raw.githubusercontent.com/nimlgen/tinyboard/master/screenshots/func_inspect.png" width="400px">
+</p>
 
 ## Run on tinygrad
 To enable tinygrad to log data to the tinyboard set the `TINYBOARD=1` env variable. You can also setup a board name with `TINYBOARD_NAME="you name goes here"`.
